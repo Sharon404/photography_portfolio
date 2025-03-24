@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Portfolio</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Photography Portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="#nature">Nature Photography</a></li>
+                <li><a href="#food">Food Photography</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-container">
+            {% for photo in photos %}
+                <div class="photo-card">
+                    <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
+                    <p>{{ photo.title }}</p>
+                </div>
+            {% empty %}
+                <p>No photos available yet.</p>
+            {% endfor %}
+            
+        </div>
+
+        <div class="gallery">
+            {% for photo in photos %}
+                <img src="{{ photo.image.url }}" alt="{{ photo.title }}" class="popup-img">
+            {% endfor %}
+        </div>
+        
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 My Photography Portfolio</p>
+    </footer>
+    <script src="{% static 'js/script.js' %}" defer></script>
+</body>
+</html>
