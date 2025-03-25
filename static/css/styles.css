@@ -13,14 +13,14 @@ body {
 /* Header */
 header {
     text-align: center;
-    padding: 10px 20px;
-    margin-bottom: 10px;
+    padding: 20px 20px; /* Reduced padding to decrease height */
+    margin-bottom: 30px; /* Adds some space below */
+}
+h1 {
+    font-size: 36px; /* Slightly smaller text */
+    margin-top: 50px; /* Keeps distance from nav */
 }
 
-h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
-}
 
 h2 {
     font-size: 32px;
@@ -33,15 +33,16 @@ h2 {
 
 /* Navigation Bar */
 nav {
-    background-color: rgba(34, 34, 34, 0.8);
-    padding: 10px 0;
+    background-color: rgba(34, 34, 34, 0.6); /* Transparent effect */
+    padding: 15px 0; /* Slightly reduced padding */
     text-align: center;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 1000;
+    backdrop-filter: blur(5px);
 }
+
 
 nav ul {
     list-style: none;
@@ -76,30 +77,32 @@ main {
 #gallery {
     text-align: center;
     padding: 50px 20px;
+    padding-top: 30px; /* Reduce this value to move it up */
+    margin-top: -50px; /* Negative margin pulls it higher */
 }
 
 .gallery-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    flex-wrap: wrap; /* Allow wrapping to the next row */
+    justify-content: center; /* Center images on large screens */
+    gap: 10px; /* Reduce space between images */
+    padding: 20px;
 }
 
-/* Photo Cards */
 .photo-card {
-    width: 250px;
+    flex: 1 1 calc(25% - 10px); /* Each photo takes 25% width, adjusting dynamically */
+    max-width: 250px; /* Prevents excessive stretching */
     background: white;
     border-radius: 10px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
     padding: 10px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    cursor: pointer;
 }
-
 .photo-card img {
     width: 100%;
     border-radius: 8px;
+    
 }
 
 .photo-card p {
@@ -123,11 +126,20 @@ main {
     height: 100%;
     background: rgba(0, 0, 0, 0.8);
     display: none;
-    justify-content: center;
     align-items: center;
-    z-index: 999;
+    justify-content: center;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
 }
 
+#overlay.show {
+    display: flex;
+    opacity: 1;
+}
+/* Remove hover close issue */
+#overlay:hover {
+    display: flex;
+}
 #popup-container {
     max-width: 80%;
     max-height: 80%;
@@ -137,25 +149,6 @@ main {
     max-width: 80%;
     max-height: 80%;
     border-radius: 10px;
-}
-
-
-#overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-}
-
-/* Remove hover close issue */
-#overlay:hover {
-    display: flex;
 }
 
 /* Footer */
@@ -168,4 +161,23 @@ footer {
     position: relative;
     bottom: 0;
     margin-top: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .photo-card {
+        flex: 1 1 calc(33.33% - 10px); /* 3 per row */
+    }
+}
+
+@media (max-width: 900px) {
+    .photo-card {
+        flex: 1 1 calc(50% - 10px); /* 2 per row */
+    }
+}
+
+@media (max-width: 600px) {
+    .photo-card {
+        flex: 1 1 100%; /* 1 per row */
+    }
 }
