@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photography Portfolio</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    
 </head>
 <body>
     <header>
@@ -25,26 +24,32 @@
         <div class="gallery-container">
             {% for photo in photos %}
                 <div class="photo-card">
-                    <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
+                    <img src="{{ photo.image.url }}" alt="{{ photo.title }}" class="popup-img">
                     <p>{{ photo.title }}</p>
                 </div>
             {% empty %}
                 <p>No photos available yet.</p>
             {% endfor %}
-            
         </div>
-
-        <div class="gallery">
-            {% for photo in photos %}
-                <img src="{{ photo.image.url }}" alt="{{ photo.title }}" class="popup-img">
-            {% endfor %}
-        </div>
-        
     </section>
-    
+
+    <!-- Fullscreen Popup Modal -->
+    <div id="popup-modal" class="popup-modal">
+        <span class="close">&times;</span>
+        <img class="popup-content" id="popup-image">
+    </div>
+
     <footer>
         <p>&copy; 2025 My Photography Portfolio</p>
     </footer>
+
+    <!-- Popup Overlay  -->
+<div id="overlay">
+    <div id="popup-container">
+        <img id="popup-image" src="" alt="Popup Image">
+    </div>
+</div>
+
     <script src="{% static 'js/script.js' %}" defer></script>
 </body>
 </html>

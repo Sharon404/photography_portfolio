@@ -3,64 +3,48 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener("click", function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute("href")).scrollIntoView({
-                behavior: "smooth"
-            });
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+                target.scrollIntoView({ behavior: "smooth" });
+            }
         });
     });
 
-    // Lightbox Effect
-    const galleryImages = document.querySelectorAll('.gallery-container img');
-    galleryImages.forEach(img => {
-        img.addEventListener('click', function () {
-            const lightbox = document.createElement('div');
-            lightbox.id = 'lightbox';
-            document.body.appendChild(lightbox);
-            const imgElement = document.createElement('img');
-            imgElement.src = this.src;
-            lightbox.appendChild(imgElement);
-
-            lightbox.addEventListener('click', () => {
-                lightbox.remove();
-            });
-        });
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    const galleryImages = document.querySelectorAll(".popup-img");
-
-    // Create popup elements
-    const overlay = document.createElement("div");
+    // Popup Effect
+    const images = document.querySelectorAll(".photo-card img");
+    const overlay = document.createElement("div"); // Create overlay dynamically
     overlay.id = "overlay";
-
-    const popupContainer = document.createElement("div");
-    popupContainer.id = "popup-container";
-
-    const popupImage = document.createElement("img");
+    overlay.style.cssText = `
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: none; justify-content: center; align-items: center;
+        z-index: 9999;
+    `;
+    
+    const popupImage = document.createElement("img"); // Create popup image dynamically
     popupImage.id = "popup-image";
+    popupImage.style.cssText = `
+        max-width: 80%;
+        max-height: 80%;
+        border-radius: 10px;
+    `;
+    
+    overlay.appendChild(popupImage);
+    document.body.appendChild(overlay); // Add overlay to the body
 
-    popupContainer.appendChild(popupImage);
-    document.body.appendChild(overlay);
-    document.body.appendChild(popupContainer);
-
-    // Click event for images
-    galleryImages.forEach(img => {
+    images.forEach(img => {
         img.addEventListener("click", function () {
+            console.log("Image clicked:", this.src);  // Debugging log
             popupImage.src = this.src;
-            popupContainer.style.display = "block";
-            overlay.style.display = "block";
+            overlay.style.display = "flex"; // Show overlay
         });
     });
 
-    // Close popup on click or hover out
-    overlay.addEventListener("click", function () {
-        popupContainer.style.display = "none";
-        overlay.style.display = "none";
-    });
-
-    popupContainer.addEventListener("mouseover", function () {
-        popupContainer.style.display = "none";
-        overlay.style.display = "none";
+    overlay.addEventListener("click", function (e) {
+        if (e.target === overlay) { // Close only if clicking outside the image
+            overlay.style.display = "none";
+            popupImage.src = ""; // Reset image source
+        }
     });
 });

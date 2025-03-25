@@ -1,11 +1,11 @@
 /* General Styles */
 body {
-    background: linear-gradient(to right, #ff9966, #ff5e62); /* Vibrant background */
+    background: linear-gradient(to right, #ff9966, #ff5e62);
     color: white;
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    height: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -14,6 +14,7 @@ body {
 header {
     text-align: center;
     padding: 10px 20px;
+    margin-bottom: 10px;
 }
 
 h1 {
@@ -22,23 +23,24 @@ h1 {
 }
 
 h2 {
-    font-size: 32px; /* Make "Gallery" more visible */
+    font-size: 32px;
     font-weight: bold;
     text-transform: uppercase;
     text-align: center;
-    color: #fffc5d; /* Adjust color for better contrast */
-    margin-bottom: 20px; /* Reduce space below */
+    color: #fffc5d;
+    margin-bottom: 20px;
 }
 
 /* Navigation Bar */
 nav {
-    background-color: rgba(34, 34, 34, 0.8); /* Semi-transparent dark background */
+    background-color: rgba(34, 34, 34, 0.8);
     padding: 10px 0;
     text-align: center;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
+    z-index: 1000;
 }
 
 nav ul {
@@ -61,14 +63,19 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #ffcc00; /* Highlight effect */
+    color: #ffcc00;
+}
+
+/* Main Content */
+main {
+    flex-grow: 1; /* Ensures content expands and pushes footer down */
+    padding-top: 80px; /* To prevent navbar overlap */
 }
 
 /* Gallery Section */
 #gallery {
     text-align: center;
-    flex: 1;
-    padding: 100px 20px 50px; /* Extra top padding due to fixed navbar */
+    padding: 50px 20px;
 }
 
 .gallery-container {
@@ -87,6 +94,7 @@ nav ul li a:hover {
     text-align: center;
     padding: 10px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 .photo-card img {
@@ -106,7 +114,7 @@ nav ul li a:hover {
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Dark overlay background */
+/* Popup Modal */
 #overlay {
     position: fixed;
     top: 0;
@@ -115,33 +123,39 @@ nav ul li a:hover {
     height: 100%;
     background: rgba(0, 0, 0, 0.8);
     display: none;
+    justify-content: center;
+    align-items: center;
     z-index: 999;
 }
 
-/* Pop-up container */
 #popup-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 90%;
-    max-height: 90%;
-    display: none;
-    z-index: 1000;
-    border-radius: 10px;
-    overflow: hidden;
+    max-width: 80%;
+    max-height: 80%;
 }
 
-/* Pop-up image */
 #popup-image {
-    width: 100%;
-    height: auto;
+    max-width: 80%;
+    max-height: 80%;
     border-radius: 10px;
 }
 
-/* Close popup on hover out */
-#overlay:hover, #popup-container:hover {
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
     display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Remove hover close issue */
+#overlay:hover {
+    display: flex;
 }
 
 /* Footer */
@@ -151,7 +165,7 @@ footer {
     background: rgba(34, 34, 34, 0.8);
     color: white;
     width: 100%;
-    position: relative; /* Change from absolute */
+    position: relative;
     bottom: 0;
-    margin-top: 50px;
+    margin-top: auto;
 }
