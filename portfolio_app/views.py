@@ -10,4 +10,7 @@ def category_photos(request, category_name):
     return render(request, 'portfolio_app/gallery.html', {'photos': photos, 'category_name': category_name})
 
 
+def contact(request):
+    return render(request, 'contact.html')  # Make sure 'contact.html' exists in the templates folder
+
 # Create your views here.

@@ -1,0 +1,59 @@
+body {
+    background: linear-gradient(to right, #99ccff, #3366cc);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+header {
+    background: rgba(51, 102, 204, 0.8);
+    padding: 20px;
+}
+
+h1, h2 {
+    color: white;
+}
+
+#contact-form {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    width: 50%;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+input, textarea {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+}
+
+button {
+    background: #ffcc00;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ffaa00;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icons img {
+    width: 40px;
+    transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+    transform: scale(1.2);
+}

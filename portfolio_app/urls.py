@@ -5,5 +5,7 @@ urlpatterns = [
     path('', gallery, name='gallery'),
     path('category/<str:category_name>/', category_photos, name='category_photos'),
 ]
-
+urlpatterns = [
+    path('contact/', contact, name='contact'),  # URL is now "/contact/"
+]
 
