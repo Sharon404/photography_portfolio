@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,9 +12,9 @@
         <h1>Contact Me</h1>
         <nav>
             <ul>
-                <li><a href="index.html">Nature Photography</a></li>
-                <li><a href="food.html">Food Photography</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="{% url 'gallery' %}">Nature Photography</a></li>
+                <li><a href="{% url 'food_photography' %}">Food Photography</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -39,6 +40,6 @@
         </section>
     </main>
 
-    <script src="assets/js/contact.js"></script>
+    <script src="{% static 'js/contact.js' %}" defer></script>
 </body>
 </html>
