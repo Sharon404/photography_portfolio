@@ -1,3 +1,4 @@
+/* 🍑 Cozy Background */
 body {
     background: linear-gradient(to right, #ffcc99, #ff9966);
     color: #4d2600;
@@ -7,36 +8,104 @@ body {
     text-align: center;
 }
 
-header {
-    background: rgba(255, 140, 102, 0.8);
-    padding: 20px;
-    font-size: 20px;
+/* 🔥 Stylish Header */
+header, footer {
+    background: rgba(255, 100, 50, 0.9); /* Matching colors */
+    padding: 15px;
+    font-size: 18px;
     color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
+header h1 {
+    font-size: 32px;
+    margin-bottom: 5px;
+    font-family: 'Pacifico', cursive;
+    letter-spacing: 1px;
+    animation: fadeIn 1s ease-in-out;
 }
 
-h2 {
-    color: #ff6600;
+/* 🌟 Sleek Nav Bar */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
 }
 
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+/* 📸 Responsive Gallery */
 .gallery-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    align-items: center;
+    gap: 15px;
     padding: 20px;
 }
 
-.photo-card img {
-    width: 250px;
+/* 🖼 Standard Image Frame */
+.photo-card {
+    width: 280px;
+    height: 280px;
+    overflow: hidden;
     border-radius: 10px;
-    transition: transform 0.3s;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
 }
 
-.photo-card img:hover {
-    transform: scale(1.1);
+.photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.photo-card:hover {
+    transform: scale(1.05);
+}
+
+/* 🔽 Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* 🎬 Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

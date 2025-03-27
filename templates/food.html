@@ -23,14 +23,21 @@
         <section id="food-gallery">
             <h2>Delicious Moments</h2>
             <div class="gallery-container">
-                <div class="photo-card"><img src="assets/images/food1.jpg" alt="Dish 1"></div>
-                <div class="photo-card"><img src="assets/images/food2.jpg" alt="Dish 2"></div>
-                <div class="photo-card"><img src="assets/images/food3.jpg" alt="Dish 3"></div>
-                <div class="photo-card"><img src="assets/images/food4.jpg" alt="Dish 4"></div>
+                {% for photo in food_photos %}
+                    <div class="photo-card">
+                        <img src="{{ photo.image.url }}" alt="{{ photo.description }}">
+                    </div>
+                {% empty %}
+                    <p>No food photos available yet.</p>
+                {% endfor %}
             </div>
         </section>
     </main>
 
+    <footer>
+        <p>&copy; 2025 Food Photography. All rights reserved.</p>
+    </footer>
+    
     <script src="{% static 'js/food.js' %}" defer></script>
 </body>
 </html>
