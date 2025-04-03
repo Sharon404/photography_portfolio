@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Photography</title>
     <link rel="stylesheet" href="{% static 'css/food.css' %}">
+    <link rel="stylesheet" href="{% static 'css/popup.css' %}">
 </head>
 <body>
     <header>
@@ -25,7 +26,8 @@
             <div class="gallery-container">
                 {% for photo in food_photos %}
                     <div class="photo-card">
-                        <img src="{{ photo.image.url }}" alt="{{ photo.description }}">
+                        <img src="{{ photo.image.url }}" alt="{{ photo.description }}" class="popup-img">
+>
                     </div>
                 {% empty %}
                     <p>No food photos available yet.</p>
@@ -34,11 +36,14 @@
         </section>
     </main>
 
-    <!-- Fullscreen Popup Modal -->
+   <!-- Fullscreen Popup Modal -->
 <div id="popup-modal" class="popup-modal">
     <span class="close">&times;</span>
+    <button id="prev-btn">&#10094;</button> <!-- Left arrow -->
     <img class="popup-content" id="popup-image">
+    <button id="next-btn">&#10095;</button> <!-- Right arrow -->
 </div>
+
 
     <footer>
         <p>© 2025 My Photography Portfolio. All rights reserved.</p>
@@ -50,7 +55,8 @@
     </footer>
     
     
-    
+    {% include 'popup_modal.html' %}
     <script src="{% static 'js/food.js' %}" defer></script>
+    <script src="{% static 'js/popup.js' %}" defer></script>
 </body>
 </html>

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photography Portfolio</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/popup.css' %}">
 </head>
 <body>
     <header>
@@ -34,10 +35,12 @@
     </section>
 
     <!-- Fullscreen Popup Modal -->
-    <div id="popup-modal" class="popup-modal">
-        <span class="close">&times;</span>
-        <img class="popup-content" id="popup-image">
-    </div>
+<div id="popup-modal" class="popup-modal">
+    <span class="close">&times;</span>
+    <button id="prev-btn">&#10094;</button> <!-- Left arrow -->
+    <img class="popup-content" id="popup-image">
+    <button id="next-btn">&#10095;</button> <!-- Right arrow -->
+</div>
 
     <footer>
         <p>© 2025 My Photography Portfolio. All rights reserved.</p>
@@ -56,6 +59,8 @@
     </div>
 </div>
 
+    {% include 'popup_modal.html' %}
     <script src="{% static 'js/script.js' %}" defer></script>
+    <script src="{% static 'js/popup.js' %}" defer></script>
 </body>
 </html>

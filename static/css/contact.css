@@ -1,6 +1,7 @@
 /* 🍑 Warm & Cozy Background */
+/* 🌿🍂 Cozy Background */
 body {
-    background: linear-gradient(to right, #ffddb3, #ffbb99); /* Smooth warm gradient */
+    background: linear-gradient(to right, #F5E1C8, #E6C8A0); /* Soft cream-beige blend */
     color: #4D2600;
     font-family: 'Poppins', sans-serif;
     text-align: center;
@@ -11,16 +12,16 @@ body {
     flex-direction: column;
 }
 
-/* 🔥 Sleeker Header & Footer */
+/* 🍂🍃 Elegant Header & Footer */
 header, footer {
-    background: rgba(255, 100, 50, 0.9);
-    padding: 10px 15px; /* Reduced height */
+    background: linear-gradient(to bottom, #5A3E2B, #3E6B48); /* Smooth brown to green blend */
+    padding: 12px 15px;
     font-size: 16px;
     color: white;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* 🌟 Elegant Navigation Bar */
+/* 🌟 Classy Navigation Bar */
 nav {
     display: flex;
     justify-content: center;
@@ -35,10 +36,6 @@ nav ul {
     gap: 20px;
 }
 
-nav ul li {
-    display: inline;
-}
-
 nav ul li a {
     text-decoration: none;
     color: white;
@@ -50,7 +47,7 @@ nav ul li a {
     position: relative;
 }
 
-/* 🎬 Cool Hover Effect */
+/* 🎬 Subtle Hover Effect */
 nav ul li a::after {
     content: "";
     position: absolute;
@@ -69,7 +66,7 @@ nav ul li a:hover::after {
 
 /* 📩 Contact Form */
 #contact-form {
-    background: #FFD9B3; /* Warm cream */
+    background: rgba(255, 245, 230, 0.95); /* Soft, warm tone */
     padding: 20px;
     width: 50%;
     margin: 20px auto;
@@ -82,17 +79,17 @@ input, textarea {
     width: 90%;
     padding: 12px;
     margin: 10px 0;
-    border: 1px solid #ff9966; /* Subtle border */
+    border: 1px solid #A57C55; /* Soft nature-inspired brown */
     border-radius: 5px;
     background: #fff7eb;
     font-size: 16px;
     color: #4D2600;
 }
 
-/* 🔘 Button Styling */
+/* 🔘 Warm Button */
 button {
-    background: #FFAA00;
-    color: black;
+    background: linear-gradient(to right, #FFAA00, #D68C45); /* Soft orange-brown blend */
+    color: white;
     padding: 12px 20px;
     border: none;
     border-radius: 5px;
@@ -108,9 +105,9 @@ button:hover {
 
 /* 🔽 Footer */
 footer {
-    margin-top: auto; /* Ensures footer stays at bottom */
+    margin-top: auto;
     text-align: center;
-    padding: 10px; /* Reduced height */
+    padding: 10px;
 }
 
 /* 🔽 Footer Icons */
@@ -121,14 +118,13 @@ footer {
     margin-top: 10px;
 }
 
-/* 🔹 Consistent Icon Size */
+/* 🔹 Soft Icon Effects */
 .social-icons img {
     width: 35px;
     height: 35px;
     transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
 
-/* 🎬 Animated Icons */
 .social-icons img:hover {
     transform: scale(1.2) rotate(10deg);
     filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.3));
